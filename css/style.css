@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Rubik:wght@300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    background-color: #FBFBFA;
+}
+
+/* NavBar */
+
+nav#navbar{
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    background-color: #dd3f3f;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+}
+
+/* Side Nav */
+
+nav#side-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+    width: 150px;
+    padding: 10px;
+    margin-top: 55px;
+    overflow-y: scroll;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}
+
+nav#side-nav::-webkit-scrollbar {
+    display: none;
+}
+
+nav#side-nav button{
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color ease .3s;
+}
+
+/* Pokemon list */
+
+#pokemon-list{
+    margin-left: 150px;
+}
+
+.pokemon-info{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.pokemon-info:nth-child(even){
+    background-color: #f8f7f7;
+}
+
+.pokemon-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 300px;
+    padding: 5px 15px 15px 15px;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.img{
+    position: relative;
+}
+
+.img img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img h4{
+    font-size: 6.2rem;
+    font-weight: 500;
+    color: #e9e8e7;
+}
+
+.name{
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.specie{
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.type{
+    margin: 12px 0 8px 0;
+    font-size: 0.8rem;
+    color: #f0b3e9;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.type span:nth-child(2){
+    margin-left: 10px;
+}
+
+.ability{
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.height{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    transform: translate(-15%, -15%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.weight{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translate(15%, -15%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.pokemon-physics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    margin-left: 50px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #a89f99;
+}
+
+table td h5{
+    padding: 5px 20px 5px 40px;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 400;    
+}
+
+.bar{
+    position: relative;
+    width: 250px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #e9e8e7;
+}
+
+.bar span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    border-radius: 3px;
+    background-color: black;
+}
+
+.show-button{
+    width: 130px;
+    height: 35px;
+    margin-left: 80px;
+    background: #33aeaf;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+    transition: background-color ease .3s;
+    cursor: pointer
+}
+
+.show-button:hover{
+    background-color: #68c0c0;
+}
+
+/* Modal */
+
+#modal-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.3);
+}
+
+/* Types Classes */
+
+    .all{
+    color: #7c625c;
+    }
+
+    .normal{
+    color: #a8a8a8;
+    }
+    .fighting{
+    color: #c83028;
+    }
+    .flying{
+    color: #909ff1;
+    }
+    .poison{
+    color: #be62a0;
+    }
+    .ground{
+    color: #e9c468;
+    }
+    .rock{
+    color: #bea038;
+    }
+    .bug{
+    color: #9cbda6;
+    }
+    .ghost{
+    color: #855898;
+    }
+    .steel{
+    color: #6d8fa7;
+    }
+    .fire{
+    color: #f1a18d;
+    }
+    .water{
+    color: #6890f0;
+    }
+    .grass{
+    color: #22c1a3;
+    }
+    .electric{
+    color: #c09643;
+    }
+    .psychic{
+    color: #eb2d77;
+    }
+    .ice{
+    color: #98d9e0;
+    }
+    .dragon{
+    color: #9a38f8;
+    }
+    .dark{
+    color: #6f4843;
+    }
+    .fairy{
+    color: #f09ad9;
+    }
+    .unknown{
+    color: #78625c;
+    }
+    .shadow{
+    color: #66625c;
+    }
+
+/* Clicked buttons  */
+
+    .all.active{
+    background-color: #6690d0;
+    color: white;
+    }
+    .normal.active{
+    background-color: #a8a8a8;
+    color: white;
+    }
+    .fighting.active{
+    background-color: #c83028;
+    color: white;
+    }
+    .flying.active{
+    background-color: #909ff1;
+    color: white;
+    }
+    .poison.active{
+    background-color: #be62a0;
+    color: white;
+    }
+    .ground.active{
+    background-color: #e9c468;
+    color: white;
+    }
+    .rock.active{
+    background-color: #bea038;
+    color: white;
+    }
+    .bug.active{
+    background-color: #9cbda6;
+    color: white;
+    }
+    .ghost.active{
+    background-color: #855898;
+    color: white;
+    }
+    .steel.active{
+    background-color: #6d8fa7;
+    color: white;
+    }
+    .fire.active{
+    background-color: #f1a18d;
+    color: white;
+    }
+    .water.active{
+    background-color: #6890f0;
+    color: white;
+    }
+    .grass.active{
+    background-color: #22c1a3;
+    color: white;
+    }
+    .eletric.active{
+    background-color: #c09643;
+    color: white;
+    }
+    .psychic.active{
+    background-color: #eb2d77;
+    color: white;
+    }
+    .ice.active{
+    background-color: #98d9e0;
+    color: white;
+    }
+    .dragon.active{
+    background-color: #9a38f8;
+    color: white;
+    }
+    .dark.active{
+    background-color: #6f4843;
+    color: white;
+    }
+    .fairy.active{
+    background-color: #f09ad9;
+    color: white;
+    }
+    .unknown.active{
+    background-color: #78625c;
+    color: white;
+    }
+    .shadow.active{
+    background-color: #66625c;
+    color: white;
+    }
+
+/* Hover buttons  */
+
+    .all:hover{
+    background-color: rgba(124, 98, 92, .2);
+    }
+    button.normal:hover{
+    background-color: rgba(206, 206, 206, .2);
+    }
+    .fighting:hover{
+    background-color: rgba(200, 48, 40, .2);
+    }
+    button.flying:hover{
+    background-color: rgba(148, 163, 241, .2);
+    }
+    button.poison:hover{
+    background-color: rgba(160, 64, 168, .2);
+    }
+    button.ground:hover{
+    background-color: rgba(224, 182, 104, .2);
+    }
+    button.rock:hover{
+    background-color: rgba(184, 168, 175, .2);
+    }
+    button.bug:hover{
+    background-color: rgba(156, 184, 32, .2);
+    }
+    button.ghost:hover{
+    background-color: rgba(112, 88, 152, .2);
+    }
+    button.steel:hover{
+    background-color: rgba(109, 143, 156, .2);
+    }
+    button.fire:hover{
+    background-color: rgba(241, 161, 141, .2);
+    }
+    button.water:hover{
+    background-color: rgba(104, 144, 240, .2);
+    }
+    button.grass:hover{
+    background-color: rgba(80, 192, 42, .2);
+    }
+    button.eletric:hover{
+    background-color: rgba(193, 150, 67, .2);
+    }
+    button.psychic:hover{
+    background-color: rgba(237, 45, 119, .2);
+    }
+    button.ice:hover{
+    background-color: rgba(152, 216, 216, .2);
+    }
+    button.dragon:hover{
+    background-color: rgba(112, 56, 247, .2);
+    }
+    button.dark:hover{
+    background-color: rgba(80, 110, 106, .2);
+    }
+    button.fairy:hover{
+    background-color: rgba(240, 154, 217, .2);
+    }
+    button.unknown:hover{
+    background-color: rgba(102, 98, 92, .2);
+    }
+    button.shadow:hover{
+    background-color: rgba(120, 98, 92, .2);
+    }
